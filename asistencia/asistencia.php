@@ -17,29 +17,37 @@
     <link rel="shortcut icon" href="img/icon_assis.png">
 </head>
 <body>
-    <nav class="navbar bg-success text-white fixed-top">
+    <!--NAVBAR-->
+    <nav class="navbar bg-primary text-white fixed-top">
         <div class="container-fluid justify-content-start text-center">
-            <div class="row">
-                <div class="col-2">
-                <a href="style_asistencia.css" class="navbar-brand">
-                    <svg width="40" height="40">
-                     <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" width="35">
-                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
-             </svg>  
-          </svg>
-        </a>
+                <div class="col-1">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                </div>       
+            <a class="navbar-brand text-white"><h3>DAILY CHECK</h3></a>
+            <!--DESIGN OFFCANVAS-->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="navbarOffcanvasLgLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">INICIO</h5>
+                                <a class="navbar-brand text-white"><h3>cheCK</h3></a>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="col-10">
-                  <h3>DIGITAL CHECK</h3>
+                <div class="navbar-body">
+                    <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a href="style_asistencia.css" class="nav-link">TAREAS</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <h6>@usuario</h6>
-        </div>
+              </div>
+           </div>
     </nav>
     <!--BODY -->
     <div class="container-fluid" id="body">
         <!--Select course-->
-        <div class="container text-center bg-primary">
+        <!--container principal-->
+        <div class="container text-center">
         <div class="row align-items-center justify-content-center">
             <div class="col-12">
                 <br>
@@ -47,11 +55,12 @@
                     <br>
                 </div>
                 <!--LISTAR CURSOS-->
-                <div class="col-4">
+                <!--container-select-->
+                <div class="col-4"> 
                 <form action="" method="POST">
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">CURSO</label>
-                    <select class="form-select" id="cursos" name="curso">
+                    <select class="form-select bg-secondary-subtle" id="cursos" name="curso">
                     <option selected>Seleccionar</option>
                     <?php
                     while($row=mysqli_fetch_array($query)):
@@ -59,18 +68,19 @@
                    <option><?=$row['nombre_curso'];?></option>
                    <?php endwhile ?>
              </select>
-             <button class="btn btn-outline-warning" type="submit"  name="select_curso">Listar</button>
+             <button class="btn btn-outline-secondary" type="submit"  name="select_curso">Listar</button>
             </div>
                 </div>
             </div>
         <div class="container-md" id="tabla_result">
      <!--LISTADO DE ALUMNOS-->
-        <div class="row align-items-center bg-success">
+     <!--container thead-->
+        <div class="row align-items-center">
             <div class="col">
             <br>
             <div class="table-wrapper-scroll-y scrollm table-responsive-md">
-            <table class="table table-dark table-striped table-hover" width="250px" >
-                <thead>
+            <table class="table table-success table-striped table-hover" width="250px" >
+                <thead class="table-dark">
                     <th scope="col">ID ALUMNO</th>
                     <th scope="col">NOMBRE</th>
                     <th scope="col">APELLIDO</th>
@@ -88,8 +98,9 @@
         </div>
         </div>
         <!--BOTON TOMAR ASISTENCIA -->
-        <div class="container">
-        <button type="button" class="btn btn-outline-light">Light</button>
+        <br>
+        <div class="container bg-success">
+        <button type="button" class="btn btn-outline-light" name="asistencia">GUARDAR ASISTENCIA</button>
         </div>
         </div>
         <!--FIN LISTADO-->
