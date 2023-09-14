@@ -48,24 +48,25 @@
                     <br>
                 </div>
                 <!--LISTAR CURSOS-->
-                <div class="col-6">
+                <div class="col-3">
+                <form action="" method="POST">
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">CURSO</label>
-                    <select class="form-select" id="inputGroupSelect01">
+                    <select class="form-select" id="cursos" name="curso">
                     <option selected>Seleccionar</option>
                     <?php
                     while($row=mysqli_fetch_array($query)):
-                ?>
+                    ?>
                    <option><?=$row['nombre_curso'];?></option>
                    <?php endwhile ?>
              </select>
-             <button class="btn btn-outline-warning" type="button"  name="select_curso">Button</button>
+             <button class="btn btn-outline-warning" type="submit"  name="select_curso">Listar</button>
             </div>
                 </div>
             </div>
-        </div>
-        <!--LISTADO DE ALUMNOS-->
-        <div class="container-lg">
+
+        <div class="container-lg" id="tabla_result">
+     <!--LISTADO DE ALUMNOS-->
         <div class="row align-items-center bg-success">
             <div class="col">
             <br>
@@ -77,26 +78,18 @@
                     <th scope="col">APELLIDO</th>
                     <th scope="col">CORREO</th>
                     <th scope="col">CURSO</th>
-                    <th scope="col">ID ASI.</th>
                     <th scope="col">ASISTENCIA</th>
                 </thead>
                 <tbody>
-                        <?php 
-                        include('consulta_asis.php');
-                        while($row2=mysqli_fetch_array($query2)):
-                        ?>
-                        <tr>
-                            <td><?=$row2['id_alumno'];?></td>
-                        </tr>
-                        <?php endwhile?>
+                <?php include('consulta_asis.php');?>
                 </tbody>
         </table>
             </div>
             </div>
-        </div>     
-
-
+            </form>
         </div>
+                    </div>
+                    </div>
         <!--FIN LISTADO-->
     </div>
     <!--FOOTER-->
