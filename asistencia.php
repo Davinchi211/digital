@@ -3,7 +3,6 @@
     $con = connection();
     $sql = "SELECT * FROM curso";
     $query = mysqli_query($con, $sql);
-    $num_rows = mysqli_num_rows($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +37,7 @@
         </div>
     </nav>
     <!--BODY -->
-    <div class="container-fluid bg-secondary-subtle" id="body">
+    <div class="container-fluid" id="body">
         <!--Select course-->
         <div class="container text-center bg-primary">
         <div class="row align-items-center justify-content-center">
@@ -48,7 +47,7 @@
                     <br>
                 </div>
                 <!--LISTAR CURSOS-->
-                <div class="col-3">
+                <div class="col-4">
                 <form action="" method="POST">
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">CURSO</label>
@@ -64,13 +63,12 @@
             </div>
                 </div>
             </div>
-
-        <div class="container-lg" id="tabla_result">
+        <div class="container-md" id="tabla_result">
      <!--LISTADO DE ALUMNOS-->
         <div class="row align-items-center bg-success">
             <div class="col">
             <br>
-            <div class="table-wrapper-scroll-y scrollm">
+            <div class="table-wrapper-scroll-y scrollm table-responsive-md">
             <table class="table table-dark table-striped table-hover" width="250px" >
                 <thead>
                     <th scope="col">ID ALUMNO</th>
@@ -78,7 +76,7 @@
                     <th scope="col">APELLIDO</th>
                     <th scope="col">CORREO</th>
                     <th scope="col">CURSO</th>
-                    <th scope="col">ASISTENCIA</th>
+                    <th scope="col">CHECK</th>
                 </thead>
                 <tbody>
                 <?php include('consulta_asis.php');?>
@@ -88,8 +86,12 @@
             </div>
             </form>
         </div>
-                    </div>
-                    </div>
+        </div>
+        <!--BOTON TOMAR ASISTENCIA -->
+        <div class="container">
+        <button type="button" class="btn btn-outline-light">Light</button>
+        </div>
+        </div>
         <!--FIN LISTADO-->
     </div>
     <!--FOOTER-->
