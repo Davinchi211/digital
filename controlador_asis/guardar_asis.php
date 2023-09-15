@@ -9,25 +9,38 @@
         $_SESSION["g_asistencia"] = true;
 
         //Guardar el valor del id por c/alumno
-        //según el valor del check
+        //según si el check está activado check
         $alumno_asis = $_POST['asistencia'];
 
         //Recorrer el listado por el check del id_alumno y actualizar el estado_asistencia
         foreach($alumno_asis as $id_alumno){
-            $sql3 = "UPDATE alumno SET estado_asistencia='1' WHERE id_alumno='$id_alumno'";
-            if ($con->query($sql3) !== TRUE) {
-                echo "Error al actualizar la asistencia: " . $con->error;
-            }
+            $sql3 = "UPDATE alumno SET estado_asistencia='1' WHERE id_alumno=?";
+            $pr3 = $con->prepare($sql3);
+            $pr3->bind_param("s",$id_alumno);
+            $pr3->execute();
         }
 
         //Guardar asistencia 
         $username = "prueba_usuario"; //se utiliza sesion para capturar al usuario
         $fecha = date("Y-m-d");
+        //recorrer el array de los marcados
         foreach($alumno_asis as $id_alumno){
-            $sql4 = "INSERT INTO asistencia (id_alumno,fecha_asistencia,user) VALUES ('$id_alumno','$fecha','$username')";
+            //Agregar alumnos presentes, con check
+            $sql4 = "INSERT INTO asistencia (id_alumno,fecha_asistencia,user) VALUES (?,?,?)";
             $pr = $con->prepare($sql4);
+            $pr->bind_param("iss",$id_alumno,$fecha,$username);
             $pr->execute();
         }
+
+        //Agregar alumnos ausentes, sin check
+        $sql6 = "INSERT INTO asistencia (id_alumno,fecha_asistencia, user)
+        SELECT id_alumno, ?, ?
+        FROM alumno
+        WHERE estado_asistencia = '0'";
+        $pr2 = $con->prepare($sql6);
+        $pr2->bind_param("ss",$fecha,$user);
+        $pr2->execute();
+
     }
     /*se usará en listado asistencia 
     $orinDate = date_create($_POST['fecha_cont']);

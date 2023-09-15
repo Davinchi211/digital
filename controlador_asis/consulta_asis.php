@@ -4,6 +4,7 @@
     }
     if(isset($_POST['select_curso'])){
     $sl_curso = $_POST['curso'];
+    //guarda el nombre del curso seleccionado
     $_SESSION["curso_sel"]=$sl_curso;
     $con = connection();
 
@@ -18,7 +19,7 @@
     $row3 = mysqli_fetch_assoc($res_id_curso);
     $id_curso = $row3['id_curso']; 
 
-    //actualizar valor 0 al estado_asistencia
+    //actualizar valor 0 al estado_asistencia, nuevo inicio
     $reset_asis = "UPDATE alumno SET estado_asistencia = '0' WHERE id_curso_asignado='$id_curso'";
     $query_reset= mysqli_query($con,$reset_asis);
     if(!$query_reset){

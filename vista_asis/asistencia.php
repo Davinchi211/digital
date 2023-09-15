@@ -46,14 +46,14 @@
            </div>
     </nav>
     <!--BODY -->
-    <div class="container-fluid" id="body">
+    <div class="container-fluid mt-5" style="height: 700px;" id="body_c">
         <!--Select course-->
         <!--container principal-->
         <div class="container text-center">
         <div class="row align-items-center justify-content-center">
             <div class="col-12">
                 <br>
-                    <h1>ASISTENCIA ALUMNOS</h1>
+                    <h1 class="mt-5">ASISTENCIA ALUMNOS</h1>
                     <br>
                 </div>
                 <!--LISTAR CURSOS-->
@@ -81,7 +81,7 @@
             <div class="col">
             <br>
             <div class="table-wrapper-scroll-y scrollm table-responsive-md">
-            <table class="table table-success table-striped table-hover">
+            <table class="table table-primary table-striped table-hover">
                 <thead class="table-dark">
                     <th scope="col">ID ALUMNO</th>
                     <th scope="col">NOMBRE</th>
@@ -111,17 +111,8 @@
         <div class="container-sm py-5 mt-5 table-responsive-md">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-8">
-                        <table class="table table-warning table-sm table-striped table-hover table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="col-xs">ID ALUMNO</th>
-                                    <th class="col-xs">ALUMNO</th>
-                                    <th class="col-xs">CURSO</th>
-                                    <th class="col-xs">PRESENTE</th>
-                                    <th class="col-xs">FECHA DE ASISTENCIA</th>
-                                </tr>
-                            </thead>
-                            <tbody class="table-group-divider">
+                        <table class="table table-secondary table-sm table-striped table-hover table-bordered">
+                            <tbody class="table-success">
                                 <?php include("../controlador_asis/lista_asis.php");?>
                             </tbody>
                         </table>
