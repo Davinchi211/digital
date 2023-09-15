@@ -1,5 +1,5 @@
 <?php
-    include('connect.php');
+    include('../controlador_asis/connect.php');
     $con = connection();
     $sql = "SELECT * FROM curso";
     $query = mysqli_query($con, $sql);
@@ -89,25 +89,54 @@
                     <th scope="col">CHECK</th>
                 </thead>
                 <tbody>
-                <?php include('consulta_asis.php');?>
+                <?php include('../controlador_asis/consulta_asis.php');?>
                 </tbody>
         </table>
             </div>
             </div>
-            </form>
         </div>
         </div>
         <!--BOTON TOMAR ASISTENCIA -->
         <br>
         <div class="container bg-success">
-        <button type="button" class="btn btn-outline-light" name="asistencia">GUARDAR ASISTENCIA</button>
+        <button type="submit" class="btn btn-outline-light" name="g_asistencia">GUARDAR ASISTENCIA</button>
+        <?php include('../controlador_asis/guardar_asis.php');?>
         </div>
-        </div>
+        
+        <br>
         <!--FIN LISTADO-->
+        <!--MOSTRAR LISTADO ASISTENCIA-->
+        <div class="container-sm mt-5 py-1 bg-warning table-responsive-md">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-8">
+                        <table class="table table-warning table-sm table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="col-xs">ID ALUMNO</th>
+                                    <th class="col-xs">ALUMNO</th>
+                                    <th class="col-xs">CURSO</th>
+                                    <th class="col-xs">PRESENTE</th>
+                                    <th class="col-xs">FECHA DE ASISTENCIA</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+        </div>
+        </form>
     </div>
+    <br>
     <!--FOOTER-->
-    <div class="container-fluid bg-info-subtle">
-        footer
+    <footer class="bd-footer py-5 mt-5 bg-secondary-subtle">
+      <div class="container-fluid bg-info-subtle">
+        <div class="row">
+            FOOTER
+        </div>
     </div>
+    </footer>
 </body>
 </html>
