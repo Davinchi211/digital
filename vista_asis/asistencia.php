@@ -38,7 +38,7 @@
                 <div class="navbar-body">
                     <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a href="../public/style_asistencia.css" class="nav-link">TAREAS</a>
+                            <a href="../controlador_asis/reporte_asis.php" class="nav-link" target="_blank">PDF TEST</a>
                         </li>
                     </ul>
                 </div>
