@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="shortcut icon" href="img/icon_assis.png">
+    <link rel="shortcut icon" href="../public/img/icon_assis.png">
 </head>
 <body>
     <!--NAVBAR-->
@@ -112,7 +112,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-8">
                         <table class="table table-secondary table-sm table-striped table-hover table-bordered">
-                            <tbody class="table-success">
+                            <tbody>
                                 <?php include("../controlador_asis/lista_asis.php");?>
                             </tbody>
                         </table>

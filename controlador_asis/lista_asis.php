@@ -13,7 +13,7 @@
         $fecha = date('Y-m-d');
         $curso_seleccionado = $_SESSION['curso_sel'];
 
-        //LISTAR ALUMNOS PRESENTES------------
+        //LISTAR ALUMNOS PRESENTES----------------------------------
         $sql5 = "SELECT
         alumno.id_alumno, alumno.nombre, alumno.apellido, curso.nombre_curso, alumno.estado_asistencia,
         asistencia.fecha_asistencia, asistencia.user
@@ -31,7 +31,9 @@
         if($prepsql->execute()){
             //obtener el resultado para luego iterarlo
             $query_consulta_asistentes=$prepsql->get_result();
-            $num_asistentes = mysqli_num_rows($query_consulta_asistentes);
+            $num_asistentes = mysqli_num_rows($query_consulta_asistentes);  
+            $_SESSION['result_present'] = $query_consulta_asistentes;
+
             echo "<thead>";
             echo "<tr>";
             echo "<th class='col-xs'>ID ALUMNO</th>";
@@ -46,6 +48,7 @@
             $prepsql->error;
         }
         //ciclo para recorrer el resultado mostrando los campos
+        echo "<tbody class='table-success'>";
         while($row3=$query_consulta_asistentes->fetch_assoc()){
             echo "<tr>";
             echo "<td>".$row3['id_alumno']."</td>";
@@ -61,7 +64,7 @@
             echo "</tr>";
             echo "<tr><tr>";
         
-        //LISTADO DE ALUMNOS AUSENTES------------
+        //LISTADO DE ALUMNOS AUSENTES-----------------------------
         $sql5 = "SELECT
         alumno.id_alumno, alumno.nombre, alumno.apellido, curso.nombre_curso, alumno.estado_asistencia,
         asistencia.fecha_asistencia, asistencia.user
@@ -79,6 +82,7 @@
             //obtener el resultado para luego iterarlo
             $query_ausentes=$prep5->get_result();
             $num_ausentes = mysqli_num_rows($query_ausentes);
+            $_SESSION['result_ausent'] = $query_consulta_asistentes;
         }else{
             $prep5->error;
         }
