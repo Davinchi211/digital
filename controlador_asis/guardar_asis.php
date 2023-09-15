@@ -1,8 +1,15 @@
 <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }    
     $con = connection();
-    //Valida el botón
-    if(isset($_POST['g_asistencia'])){
+    //Valida al presionar el botón
+    if($_SERVER["REQUEST_METHOD"]== "POST" && isset($_POST["g_asistencia"])){
+        //variable de sesion para el botón
+        $_SESSION["g_asistencia"] = true;
+
         //Guardar el valor del id por c/alumno
+        //según el valor del check
         $alumno_asis = $_POST['asistencia'];
 
         //Recorrer el listado por el check del id_alumno y actualizar el estado_asistencia
@@ -18,18 +25,11 @@
         $fecha = date("Y-m-d");
         foreach($alumno_asis as $id_alumno){
             $sql4 = "INSERT INTO asistencia (id_alumno,fecha_asistencia,user) VALUES ('$id_alumno','$fecha','$username')";
-            if ($con->query($sql4) !== TRUE) {
-                echo "Error al registrar la asistencia: " . $con->error;
-            }
+            $pr = $con->prepare($sql4);
+            $pr->execute();
         }
-
-        //LISTAR ALUMNOS PARA EL REPORTE
-
-
     }
     /*se usará en listado asistencia 
     $orinDate = date_create($_POST['fecha_cont']);
     $fech_cont = date_format($orinDate, 'Y-m-d'); */
-    mysqli_close($con);
-
 ?>

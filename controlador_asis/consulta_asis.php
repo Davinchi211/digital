@@ -1,6 +1,10 @@
 <?php
+    if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+    }
     if(isset($_POST['select_curso'])){
     $sl_curso = $_POST['curso'];
+    $_SESSION["curso_sel"]=$sl_curso;
     $con = connection();
 
     //captura el id del curso según el nombre seleccionado
@@ -34,8 +38,6 @@
     //ejecutando la consulta
     if($prep->execute()){
         $query2 = $prep->get_result();
-        //$num_rows = mysqli_num_rows($query2);
-        //echo "<tr>Alumnos: ".$num_rows. "</tr>";
     }
     //Ciclo para mostrar la fila
     while($row2= $query2->fetch_assoc()){
@@ -50,7 +52,6 @@
         echo "</tr>";
 }
 }   
-    mysqli_close($con);
 ?>
 
 

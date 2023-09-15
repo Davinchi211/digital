@@ -1,4 +1,6 @@
 <?php
+    ob_start();
+    session_start();
     include('../controlador_asis/connect.php');
     $con = connection();
     $sql = "SELECT * FROM curso";
@@ -79,7 +81,7 @@
             <div class="col">
             <br>
             <div class="table-wrapper-scroll-y scrollm table-responsive-md">
-            <table class="table table-success table-striped table-hover" width="250px" >
+            <table class="table table-success table-striped table-hover">
                 <thead class="table-dark">
                     <th scope="col">ID ALUMNO</th>
                     <th scope="col">NOMBRE</th>
@@ -98,18 +100,18 @@
         </div>
         <!--BOTON TOMAR ASISTENCIA -->
         <br>
-        <div class="container bg-success">
-        <button type="submit" class="btn btn-outline-light" name="g_asistencia">GUARDAR ASISTENCIA</button>
+        <div class="container md-10 py-2">
+        <button type="submit" class="btn btn-outline-success" name="g_asistencia">GUARDAR ASISTENCIA</button>
         <?php include('../controlador_asis/guardar_asis.php');?>
-        </div>
-        
+        <button type="submit" class="btn btn-outline-secondary" name="n_asistencia">NUEVA ASISTENCIA</button>
+        </div>   
         <br>
         <!--FIN LISTADO-->
-        <!--MOSTRAR LISTADO ASISTENCIA-->
-        <div class="container-sm mt-5 py-1 bg-warning table-responsive-md">
+        <!--MOSTRAR LISTADO ASISTENCIA LUEGO DE GUARDAR-->
+        <div class="container-sm py-5 mt-5 table-responsive-md">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-8">
-                        <table class="table table-warning table-sm table-striped table-hover">
+                        <table class="table table-warning table-sm table-striped table-hover table-bordered">
                             <thead>
                                 <tr>
                                     <th class="col-xs">ID ALUMNO</th>
@@ -120,7 +122,7 @@
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                
+                                <?php include("../controlador_asis/lista_asis.php");?>
                             </tbody>
                         </table>
                 </div>
