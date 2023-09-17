@@ -65,14 +65,6 @@
             echo "<tr><tr>";
         
         //LISTADO DE ALUMNOS AUSENTES-----------------------------
-        $sql5 = "SELECT
-        alumno.id_alumno, alumno.nombre, alumno.apellido, curso.nombre_curso, alumno.estado_asistencia,
-        asistencia.fecha_asistencia, asistencia.user
-        FROM alumno
-        INNER JOIN curso ON alumno.id_curso_asignado = curso.id_curso
-        INNER JOIN asistencia ON alumno.id_alumno = asistencia.id_alumno
-        WHERE fecha_asistencia=? AND nombre_curso = ? AND estado_asistencia=?
-        GROUP BY id_alumno";
         $estado_asis =0;
         //preparar la consulta y evitar sql injection
         $prep5 = $con->prepare($sql5);
@@ -96,10 +88,9 @@
             echo "<td>".$row4['fecha_asistencia']."</td>";
             echo "<td>".$row4['user']."</td>";
             echo "</tr>";
-            echo "</tr>";
         }
             echo "<tr>";
             echo "<td colspan='6' rowspan='2'><h6><i><sub>AUSENTES: ".$num_ausentes."</sub></i></h6></td>";
-            echo "</tr></tr>";
+            echo "</tr>";
     }
 ?>

@@ -108,7 +108,7 @@
         <br>
         <!--FIN LISTADO-->
         <!--MOSTRAR LISTADO ASISTENCIA LUEGO DE GUARDAR-->
-        <div class="container-sm py-5 mt-5 table-responsive-md">
+        <div class="container-sm py-5 mt-1 table-responsive-md mg-div">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-8">
                         <table class="table table-secondary table-sm table-striped table-hover table-bordered">
@@ -121,15 +121,15 @@
         </div>
         </div>
         </form>
-    </div>
-    <br>
-    <!--FOOTER-->
-    <footer class="bd-footer py-5 mt-5 bg-secondary-subtle">
-      <div class="container-fluid bg-info-subtle">
-        <div class="row">
+        </div>
+            <!--FOOTER-->
+      <div class="container-fluid bg-info-subtle justify-between mt-5">
+        <div class="copyright">
             FOOTER
         </div>
+        <div class="text">
+            aa
+        </div>    
     </div>
-    </footer>
 </body>
 </html>
