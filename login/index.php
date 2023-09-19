@@ -13,6 +13,7 @@ if(!empty($sessData['status']['msg'])){
     <title>Bienvenido al sistema</title>
     <link rel="stylesheet" href="style.css" type="text/css" media="all" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" 	type="text/css" media="all">
+	<link rel="shortcut icon" href="../public/img/home.png">
 </head>
 <body>
     <h1>Bienvenido al sistema</h1>
@@ -33,10 +34,15 @@ if(!empty($sessData['status']['msg'])){
 			<p><b>Nombre: </b><?php echo $userData['first_name'].' '.$userData['last_name']; ?></p>
             <p><b>Correo: </b><?php echo $userData['email']; ?></p>
             <p><b>Teléfono: </b><?php echo $userData['phone']; ?></p>
+			<hr>
+			<div class="btn"><br>
+				<a href="../vista_asis/asistencia.php">INGRESAR</a>
+			</div>
 		</div>
         <?php }else{ ?>
 		<h2 align="center">Inicio de sesion</h2>
-        <?php echo !empty($statusMsg)?'<p class="'.$statusMsgType.'">'.$statusMsg.'</p>':''; ?>
+			<p align="center"><img src="../public/img/cliente.png" alt=""></p>
+		<?php echo !empty($statusMsg)?'<p class="'.$statusMsgType.'">'.$statusMsg.'</p>':''; ?>
 		<div class="regisFrm">
 			<form action="userAccount.php" method="post">
 				<input type="email" name="email" placeholder="Correo Electrónico" required="">

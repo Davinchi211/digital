@@ -27,12 +27,12 @@
                       <span class="navbar-toggler-icon"></span>
                   </button>
                 </div>       
-            <a class="navbar-brand text-white"><h3>DAILY CHECK</h3></a>
+            <a class="navbar-brand text-white"><h4>DAILY CHECK</h4></a>
+            <a href="../login/userAccount.php?logoutSubmit=1" class="logout text-white" style="margin-left:1000px;">Cerrar Sesión</a>
             <!--DESIGN OFFCANVAS-->
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="navbarOffcanvasLgLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title">INICIO</h5>
-                                <a class="navbar-brand text-white"><h3>cheCK</h3></a>
+                                <a class="navbar-brand text-black"><h3>CHECKING</h3></a>
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="navbar-body">
@@ -46,7 +46,7 @@
            </div>
     </nav>
     <!--BODY -->
-    <div class="mt-5" style="height: 700px; margin: 0;" id="body_c">
+    <div class="mt-5 bg-light" style="height: 700px; margin: 0;" id="body_c">
         <!--Select course-->
         <!--container principal-->
         <div class="container text-center">
@@ -122,13 +122,13 @@
         </div>
         </form>
     <!--FOOTER-->    
-    <div class="container-fluid bg-light bg-gradient text-black-50 mt-2 rounded-top-5" style="padding:1.5em;">
+    <div class="container-fluid bg-secondary bg-gradient text-white mt-5 rounded-top-5" style="padding:3em;">
         <div class="row">
             <div class="col-5">
-            <h6><small>© 2023 PROYECT</small></h6>
+            <h6>© 2023 PROYECT</h6>
             </div>
             <div class="col-5">
-            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 link-secondary"><h6>CHECK.li</h6></a>
+            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 link-light"><h6>CHECKING.com</h6></a>
             </div>
             <div class="col-2">
                 <div style="height:120px;">
