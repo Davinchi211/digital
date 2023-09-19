@@ -46,7 +46,7 @@
            </div>
     </nav>
     <!--BODY -->
-    <div class="container-fluid mt-5" style="height: 700px;" id="body_c">
+    <div class="mt-5" style="height: 700px; margin: 0;" id="body_c">
         <!--Select course-->
         <!--container principal-->
         <div class="container text-center">
@@ -121,15 +121,22 @@
         </div>
         </div>
         </form>
+    <!--FOOTER-->    
+    <div class="container-fluid bg-light bg-gradient text-black-50 mt-2 rounded-top-5" style="padding:1.5em;">
+        <div class="row">
+            <div class="col-5">
+            <h6><small>© 2023 PROYECT</small></h6>
+            </div>
+            <div class="col-5">
+            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 link-secondary"><h6>CHECK.li</h6></a>
+            </div>
+            <div class="col-2">
+                <div style="height:120px;">
+                <img src="../public/img/umg.png" alt="logo UMG" class="img-fluid d-block sm-image" style="width:200px;">      
+                </div>   
+             </div>
         </div>
-            <!--FOOTER-->
-      <div class="container-fluid bg-info-subtle justify-between mt-5">
-        <div class="copyright">
-            FOOTER
-        </div>
-        <div class="text">
-            aa
-        </div>    
+    </div>
     </div>
 </body>
 </html>
