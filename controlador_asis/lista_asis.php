@@ -62,7 +62,7 @@
             echo "<tr>";
             echo "<td colspan='6' rowspan='2'><h6><i><sub>PRESENTES: ".$num_asistentes."</sub></i></h6></td>";
             echo "</tr>";
-            echo "<tr><tr>";
+            echo "<tr><tr></tbody>";
         
         //LISTADO DE ALUMNOS AUSENTES-----------------------------
         $estado_asis =0;
@@ -91,6 +91,6 @@
         }
             echo "<tr>";
             echo "<td colspan='6' rowspan='2'><h6><i><sub>AUSENTES: ".$num_ausentes."</sub></i></h6></td>";
-            echo "</tr>";
+            echo "</tr></tbody>";
     }
 ?>

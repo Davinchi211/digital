@@ -46,7 +46,7 @@
            </div>
     </nav>
     <!--BODY -->
-    <div class="mt-5 bg-light" style="height: 700px; margin: 0;" id="body_c">
+    <div class="mt-5 bg-light" style="height: auto; margin: 0;" id="body_c">
         <!--Select course-->
         <!--container principal-->
         <div class="container text-center">
@@ -80,8 +80,8 @@
         <div class="row align-items-center">
             <div class="col">
             <br>
-            <div class="table-wrapper-scroll-y scrollm table-responsive-md">
-            <table class="table table-primary table-striped table-hover">
+            <div class="table-wrapper-scroll-y table-responsive-md">
+            <table class="table table-primary table-striped table-hover mb-0">
                 <thead class="table-dark">
                     <th scope="col">ID ALUMNO</th>
                     <th scope="col">NOMBRE</th>
@@ -121,14 +121,16 @@
         </div>
         </div>
         </form>
-    <!--FOOTER-->    
-    <div class="container-fluid bg-secondary bg-gradient text-white mt-5 rounded-top-5" style="padding:3em;">
+    <!--FOOTER-->     
+ 
+    <div class="container text-black mt-5" style="padding:2em;">
+    <hr>
         <div class="row">
             <div class="col-5">
             <h6>© 2023 PROYECT</h6>
             </div>
             <div class="col-5">
-            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 link-light"><h6>CHECKING.com</h6></a>
+            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 link-dark"><h6>CHECKING.com</h6></a>
             </div>
             <div class="col-2">
                 <div style="height:120px;">
@@ -138,5 +140,6 @@
         </div>
     </div>
     </div>
+
 </body>
 </html>

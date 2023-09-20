@@ -21,14 +21,14 @@
         }
 
         //Guardar asistencia 
-        $username = "prueba_usuario"; //se utiliza sesion para capturar al usuario
+        $user = "user1";
         $fecha = date("Y-m-d");
         //recorrer el array de los marcados
         foreach($alumno_asis as $id_alumno){
             //Agregar alumnos presentes, con check
             $sql4 = "INSERT INTO asistencia (id_alumno,fecha_asistencia,user) VALUES (?,?,?)";
             $pr = $con->prepare($sql4);
-            $pr->bind_param("iss",$id_alumno,$fecha,$username);
+            $pr->bind_param("iss",$id_alumno,$fecha,$user);
             $pr->execute();
         }
 

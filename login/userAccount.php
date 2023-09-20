@@ -71,7 +71,6 @@ if(isset($_POST['signupSubmit'])){
         $sessData['status']['type'] = 'error';
         $sessData['status']['msg'] = 'Ingrese correo electrónico y contraseña.'; 
     }
-	
     $_SESSION['sessData'] = $sessData;
 	
     header("Location:index.php");
@@ -115,7 +114,7 @@ if(isset($_POST['signupSubmit'])){
 				$headers = "MIME-Version: 1.0" . "\r\n";
 				$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 				
-				$headers .= 'From: PROYECTO<guillermo.mar18@gmail.com>' . "\r\n";
+				$headers .= 'From: PROYECTO<proyect3514@gmail.com>' . "\r\n";
 				
 				mail($to,$subject,$mailContent,$headers);
 				
