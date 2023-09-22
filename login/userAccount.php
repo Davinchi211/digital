@@ -57,6 +57,7 @@ if(isset($_POST['signupSubmit'])){
         );
         $conditions['return_type'] = 'single';
         $userData = $user->getRows($conditions);
+        
 		
         if($userData){
             $sessData['userLoggedIn'] = TRUE;
@@ -72,6 +73,8 @@ if(isset($_POST['signupSubmit'])){
         $sessData['status']['msg'] = 'Ingrese correo electrónico y contraseña.'; 
     }
     $_SESSION['sessData'] = $sessData;
+    $_SESSION['first_name'] = $userData['first_name'];
+    $_SESSION['id'] = $userData['id'];
 	
     header("Location:index.php");
 }elseif(isset($_POST['forgotSubmit'])){

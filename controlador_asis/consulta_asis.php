@@ -2,6 +2,15 @@
     if (session_status() == PHP_SESSION_NONE) {
     session_start();
     }
+    echo "esto es una prueba<br>";
+    print_r($_SESSION['sessData']);
+
+    $user = $_SESSION['first_name'];
+    $id =  $_SESSION['id'];
+    echo "<br>";
+    echo $user."<br>";
+    echo $id."<br>";
+
     if(isset($_POST['select_curso'])){
     $sl_curso = $_POST['curso'];
     //guarda el nombre del curso seleccionado
