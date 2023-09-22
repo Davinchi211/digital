@@ -11,15 +11,14 @@
 
     //captura el id del curso según el nombre seleccionado
     $id_curso_select = "SELECT id_curso FROM curso WHERE nombre_curso='$sl_curso'";
+    
     $res_id_curso = mysqli_query($con, $id_curso_select);
-    if(!$res_id_curso){
-        echo "ERROR".mysqli_error($con);
-    }else{
 
+    if($res_id_curso){
     //Obtener el array del resultado y almacenar cada id
     $row3 = mysqli_fetch_assoc($res_id_curso);
     $id_curso = $row3['id_curso']; 
-
+    
     //actualizar valor 0 al estado_asistencia, nuevo inicio
     $reset_asis = "UPDATE alumno SET estado_asistencia = '0' WHERE id_curso_asignado='$id_curso'";
     $query_reset= mysqli_query($con,$reset_asis);
@@ -27,7 +26,7 @@
         echo "ERROR".mysqli_error($con);
     }
 }
-
+    
     //Listar alumnos según el curso, para toma de asistencia
     $sql2 = "SELECT 
     alumno.id_alumno, alumno.nombre, alumno.apellido, alumno.correo, curso.nombre_curso
@@ -52,7 +51,7 @@
         echo "<td><input type='checkbox' name='asistencia[]' value='" . $row2['id_alumno'] . "' 
         style='width:25px; height: 25px; cursor:pointer; padding-left: 20px;'></td>";
         echo "</tr>";
-}
+    }
 }   
 ?>
 

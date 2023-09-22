@@ -24,6 +24,7 @@
         $user = $_SESSION['first_name'];
         $fecha = date("Y-m-d");
         //recorrer el array de los marcados
+            //validar duplicados asistencia
         foreach($alumno_asis as $id_alumno){
             //Agregar alumnos presentes, con check
             $sql4 = "INSERT INTO asistencia (id_alumno,fecha_asistencia,user) VALUES (?,?,?)";
