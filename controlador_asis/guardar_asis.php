@@ -21,7 +21,7 @@
         }
 
         //Guardar asistencia 
-        $user = "user1";
+        $user = $_SESSION['first_name'];
         $fecha = date("Y-m-d");
         //recorrer el array de los marcados
         foreach($alumno_asis as $id_alumno){

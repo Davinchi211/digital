@@ -1,7 +1,5 @@
 <?php
         if(isset($_POST["n_asistencia"])){
-                session_destroy();
-                session_start();
         }
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
