@@ -3,7 +3,12 @@
     session_start();
     include('../controlador_asis/connect.php');
     $con = connection();
-    $sql = "SELECT * FROM curso";
+    $id = $_SESSION['id'];
+    $sql = "SELECT curso.nombre_curso
+    FROM curso
+    INNER JOIN cursoasignado ON cursoasignado.id_curso = curso.id_curso
+    INNER JOIN users ON cursoasignado.id_user = users.id
+    WHERE id=$id";
     $query = mysqli_query($con, $sql);
 ?>
 <!DOCTYPE html>
