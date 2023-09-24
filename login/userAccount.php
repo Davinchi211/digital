@@ -46,24 +46,27 @@ if(isset($_POST['signupSubmit'])){
     $redirectURL = ($sessData['status']['type'] == 'success')?'index.php':'registration.php';
 	
     header("Location:".$redirectURL);
+
+
 }elseif(isset($_POST['loginSubmit'])){
 	
     if(!empty($_POST['email']) && !empty($_POST['password'])){
 		
+
         $conditions['where'] = array(
             'email' => $_POST['email'],
             'password' => md5($_POST['password']),
             'status' => '1'
         );
         $conditions['return_type'] = 'single';
-        $userData = $user->getRows($conditions);
-        
+        $userData = $user->getRows($conditions);        
 		
         if($userData){
             $sessData['userLoggedIn'] = TRUE;
             $sessData['userID'] = $userData['id'];
             $sessData['status']['type'] = 'success';
             $sessData['status']['msg'] = 'Bienvenid@ '.$userData['first_name'].'!';
+
         }else{
             $sessData['status']['type'] = 'error';
             $sessData['status']['msg'] = 'Correo electrónico o contraseña incorrectos, intente nuevamente.'; 
@@ -73,10 +76,16 @@ if(isset($_POST['signupSubmit'])){
         $sessData['status']['msg'] = 'Ingrese correo electrónico y contraseña.'; 
     }
     $_SESSION['sessData'] = $sessData;
+    
     $_SESSION['first_name'] = $userData['first_name'];
     $_SESSION['id'] = $userData['id'];
-	
     header("Location:index.php");
+
+    if($userData['first_name']==='ADMIN'){
+        header("Location: indexAdmin.php");
+    }
+
+    //FIN INICIO SESION
 }elseif(isset($_POST['forgotSubmit'])){
 	
     if(!empty($_POST['email'])){

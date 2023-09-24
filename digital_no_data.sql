@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-09-2023 a las 06:05:01
+-- Tiempo de generación: 24-09-2023 a las 20:51:16
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -68,6 +68,18 @@ CREATE TABLE `curso` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `cursoasignado`
+--
+
+CREATE TABLE `cursoasignado` (
+  `id_curso_asignado` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -109,6 +121,14 @@ ALTER TABLE `curso`
   ADD PRIMARY KEY (`id_curso`);
 
 --
+-- Indices de la tabla `cursoasignado`
+--
+ALTER TABLE `cursoasignado`
+  ADD PRIMARY KEY (`id_curso_asignado`),
+  ADD KEY `fk_curso_user` (`id_user`),
+  ADD KEY `fk_curso_curso` (`id_curso`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -137,6 +157,12 @@ ALTER TABLE `curso`
   MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `cursoasignado`
+--
+ALTER TABLE `cursoasignado`
+  MODIFY `id_curso_asignado` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
@@ -157,6 +183,13 @@ ALTER TABLE `alumno`
 --
 ALTER TABLE `asistencia`
   ADD CONSTRAINT `fk_asistencia_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `cursoasignado`
+--
+ALTER TABLE `cursoasignado`
+  ADD CONSTRAINT `fk_curso_curso` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_curso_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
