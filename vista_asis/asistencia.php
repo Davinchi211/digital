@@ -8,8 +8,12 @@
     FROM curso
     INNER JOIN cursoasignado ON cursoasignado.id_curso = curso.id_curso
     INNER JOIN users ON cursoasignado.id_user = users.id
-    WHERE id=$id";
-    $query = mysqli_query($con, $sql);
+    WHERE id=?";
+    $sql_curso = $con->prepare($sql);
+    $sql_curso->bind_param("i",$id);
+    if($sql_curso->execute()){
+        $quer_curso = $sql_curso->get_result();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +75,7 @@
                     <select class="form-select bg-secondary-subtle" id="cursos" name="curso">
                     <option selected>Seleccionar</option>
                     <?php
-                    while($row=mysqli_fetch_array($query)):
+                    while($row=$quer_curso->fetch_assoc()):
                     ?>
                    <option><?=$row['nombre_curso'];?></option>
                    <?php endwhile ?>

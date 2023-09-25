@@ -15,7 +15,8 @@
     $pdf->SetFont('helvetica','','10');
     $pdf->Cell(545,15,"CURSO: ",0,2,"L");
     $pdf->Cell(545,15,"FECHA: ".$fecha."",0,2,"L");
-    $pdf->Cell(545,15,"CATEDRÁTICO: ",0,2,"L");
+    //captura el nombre de usuario en sesión para el reporte
+    $pdf->Cell(545,15,utf8_decode("CATEDRÁTICO: ".$_SESSION['first_name'].""),0,2,"L");
     $pdf->SetDrawColor(0,0,0);
     $pdf->SetLineWidth(2);
     $pdf->Line(5,110,590,110);
@@ -38,5 +39,6 @@
             echo "</tr>";
             echo "</tr>";
     }*/
+
     $pdf->Output();    
 ?>
