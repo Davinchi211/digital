@@ -20,10 +20,27 @@
         $row3 = array();
         $id_curso = array();
         echo "<script>
+        let timerInterval
         Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Favor seleccione un curso!',
+        title: 'Algo salió mal!!',
+        html: 'Favor selecciona un curso',
+        timer: 2500,
+        timerProgressBar: true,
+        icon: 'error',
+        didOpen: () => {
+        Swal.showLoading()
+        const b = Swal.getHtmlContainer().querySelector('b')
+        timerInterval = setInterval(() => {
+        b.textContent = Swal.getTimerLeft()
+            }, 100)
+        },
+        willClose: () => {
+        clearInterval(timerInterval)
+        }
+        }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+        console.log('I was closed by the timer')
+        }
         })
         </script>";
 

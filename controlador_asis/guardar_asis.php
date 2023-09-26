@@ -51,6 +51,7 @@
             echo "<br>!!!";
         }
 
+        //ya valida todos los id
         $alumno_ausente = array_diff($todosid, $alumno_asis);
         print_r($alumno_ausente);
         //Agregar alumnos ausentes, sin check
