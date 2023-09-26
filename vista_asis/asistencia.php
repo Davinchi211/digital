@@ -26,6 +26,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="shortcut icon" href="../public/img/icon_assis.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <!--NAVBAR-->
@@ -80,7 +81,7 @@
                    <option><?=$row['nombre_curso'];?></option>
                    <?php endwhile ?>
              </select>
-             <button class="btn btn-outline-secondary" type="submit"  name="select_curso">Listar</button>
+             <button class="btn btn-outline-secondary" type="submit"  name="select_curso" onclick="valida_curso()">Listar</button>
             </div>
                 </div>
             </div>

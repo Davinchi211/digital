@@ -4,6 +4,7 @@
     }
     
     if(isset($_POST['select_curso'])){
+    
     $sl_curso = $_POST['curso'];
     //guarda el nombre del curso seleccionado
     $_SESSION["curso_sel"]=$sl_curso;
@@ -15,17 +16,30 @@
     $res_id_curso = mysqli_query($con, $id_curso_select);
 
     if($res_id_curso){
-    //Obtener el array del resultado y almacenar cada id
-    $row3 = mysqli_fetch_assoc($res_id_curso);
-    $id_curso = $row3['id_curso']; 
-    
-    //actualizar valor 0 al estado_asistencia, nuevo inicio
-    $reset_asis = "UPDATE alumno SET estado_asistencia = '0' WHERE id_curso_asignado='$id_curso'";
-    $query_reset= mysqli_query($con,$reset_asis);
-    if(!$query_reset){
+    if(mysqli_num_rows($res_id_curso)===0){
+        $row3 = array();
+        $id_curso = array();
+        echo "<script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Favor seleccione un curso!',
+        })
+        </script>";
+
+    } else {
+        //Obtener el array del resultado y almacenar cada id
+        $row3 = mysqli_fetch_assoc($res_id_curso);
+        $id_curso = $row3['id_curso']; 
+            //actualizar valor 0 al estado_asistencia, nuevo inicio
+        $reset_asis = "UPDATE alumno SET estado_asistencia = '0' WHERE id_curso_asignado='$id_curso'";
+        $query_reset= mysqli_query($con,$reset_asis);
+         if(!$query_reset){
         echo "ERROR".mysqli_error($con);
+         }
+     }
     }
-}
+
     
     //Listar alumnos según el curso, para toma de asistencia
     $sql2 = "SELECT 
