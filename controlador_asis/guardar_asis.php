@@ -7,7 +7,9 @@
     if($_SERVER["REQUEST_METHOD"]== "POST" && isset($_POST["g_asistencia"])){
         //variable de sesion para el botón
         $_SESSION["g_asistencia"] = true;
+        $curso_seleccionado = $_SESSION['curso_sel'];
 
+        if(isset($_POST['asistencia'])){
         //Guardar el valor del id por c/alumno
         //según si el check está activado check
         $alumno_asis = $_POST['asistencia'];
@@ -24,7 +26,6 @@
         $user = $_SESSION['first_name'];
         $fecha = date("Y-m-d");
         //recorrer el array de los marcados
-            //validar duplicados asistencia
         foreach($alumno_asis as $id_alumno){
             //Agregar alumnos presentes, con check
             $sql4 = "INSERT INTO asistencia (id_alumno,fecha_asistencia,user) VALUES (?,?,?)";
@@ -33,6 +34,25 @@
             $pr->execute();
         }
 
+        //captura los id para compararlos con los no marcados
+        $id_valida = "SELECT alumno.id_alumno
+        FROM alumno
+        INNER JOIN curso ON curso.id_curso = alumno.id_curso_asignado
+        WHERE curso.nombre_curso = ?";
+        $prepid = $con->prepare($id_valida);
+        $prepid->bind_param("s",$curso_seleccionado);
+        if($prepid->execute()){
+            $querid = $prepid->get_result();
+            while($r=$querid->fetch_assoc()){
+                $todosid[] =$r['id_alumno'];
+            }
+            print_r($todosid);
+
+            echo "<br>!!!";
+        }
+
+        $alumno_ausente = array_diff($todosid, $alumno_asis);
+        print_r($alumno_ausente);
         //Agregar alumnos ausentes, sin check
         $sql6 = "INSERT INTO asistencia (id_alumno,fecha_asistencia, user)
         SELECT id_alumno, ?, ?
@@ -41,9 +61,8 @@
         $pr2 = $con->prepare($sql6);
         $pr2->bind_param("ss",$fecha,$user);
         $pr2->execute();
-
+    }else{
+        echo "marque una opciñon";
     }
-    /*se usará en listado asistencia 
-    $orinDate = date_create($_POST['fecha_cont']);
-    $fech_cont = date_format($orinDate, 'Y-m-d'); */
+ }
 ?>
