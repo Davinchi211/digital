@@ -46,24 +46,17 @@
             while($r=$querid->fetch_assoc()){
                 $todosid[] =$r['id_alumno'];
             }
-            print_r($todosid);
-
-            echo "<br>!!!";
         }
 
         //ya valida todos los id
         $alumno_ausente = array_diff($todosid, $alumno_asis);
-        print_r($alumno_ausente);
-        //Agregar alumnos ausentes, sin check
-        $sql6 = "INSERT INTO asistencia (id_alumno,fecha_asistencia, user)
-        SELECT id_alumno, ?, ?
-        FROM alumno
-        WHERE estado_asistencia = '0'";
-        $pr2 = $con->prepare($sql6);
-        $pr2->bind_param("ss",$fecha,$user);
-        $pr2->execute();
-    }else{
-        echo "marque una opciñon";
+        foreach($alumno_ausente as $id_alumno_aus){
+            //Agregar alumnos ausentes, sin check
+            $sql6 = "INSERT INTO asistencia (id_alumno,fecha_asistencia, user) VALUES (?,?,?)";
+            $pr2 = $con->prepare($sql6);
+            $pr2->bind_param("iss",$id_alumno_aus,$fecha,$user);
+            $pr2->execute();
+        }
     }
  }
 ?>

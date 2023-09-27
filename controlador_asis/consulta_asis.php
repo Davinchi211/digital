@@ -24,7 +24,7 @@
         Swal.fire({
         title: 'Algo salió mal!!',
         html: 'Favor selecciona un curso',
-        timer: 2500,
+        timer: 2000,
         timerProgressBar: true,
         icon: 'error',
         didOpen: () => {
