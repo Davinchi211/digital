@@ -127,8 +127,6 @@
                                 <?php include("../controlador_asis/lista_asis.php");?>
                             </tbody>
                         </table>
-                        <!--MODIFICAR-->
-                        <a href="../controlador_asis/reporte_asis.php" class="nav-link" target="_blank">PDF TEST</a>
                 </div>
             </div>
         </div>
