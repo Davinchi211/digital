@@ -27,35 +27,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="shortcut icon" href="../public/img/icon_assis.png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
 <body>
-    <!--NAVBAR-->
-    <nav class="navbar bg-primary text-white fixed-top">
-        <div class="container-fluid justify-content-start text-center">
-                <div class="col-1">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-                </div>       
-            <a class="navbar-brand text-white"><h4>BIENVENID<small>@</small></h4></a>
-            <a class="navbar-brand text-warning"><h5><?php echo $_SESSION['first_name'];?></h5></a>
-            <a href="../login/userAccount.php?logoutSubmit=1" class="logout text-white" style="margin-left:1000px;">Cerrar Sesión</a>
-            <!--DESIGN OFFCANVAS-->
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="navbarOffcanvasLgLabel">
-                <div class="offcanvas-header">
-                                <a class="navbar-brand text-black"><h3>CHECKING</h3></a>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="navbar-body">
-                    <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a href="../controlador_asis/reporte_asis.php" class="nav-link" target="_blank">PDF TEST</a>
-                        </li>
-                    </ul>
-                </div>
-              </div>
-           </div>
-    </nav>
+    <?php include('../public/header.php');?>
     <!--BODY -->
     <div class="mt-5 bg-light" style="height: auto; margin: 0;" id="body_c">
         <!--Select course-->
@@ -132,25 +107,7 @@
         </div>
         </div>
         </form>
-    <!--FOOTER-->     
- 
-    <div class="container text-black mt-5" style="padding:2em;">
-    <hr>
-        <div class="row">
-            <div class="col-5">
-            <h6>© 2023 PROYECT</h6>
-            </div>
-            <div class="col-5">
-            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 link-dark"><h6>CHECKING.com</h6></a>
-            </div>
-            <div class="col-2">
-                <div style="height:120px;">
-                <img src="../public/img/check.png" alt="logo UMG" class="img-fluid d-block sm-image" style="width:100px;">      
-                </div>   
-             </div>
-        </div>
-    </div>
-    </div>
+        <?php include('../public/footer.php');?>
 
 </body>
 </html>

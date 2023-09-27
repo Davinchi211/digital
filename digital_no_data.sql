@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-09-2023 a las 20:51:16
+-- Tiempo de generación: 27-09-2023 a las 06:47:34
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -48,6 +48,7 @@ CREATE TABLE `alumno` (
 CREATE TABLE `asistencia` (
   `id_asistencia` int(11) NOT NULL,
   `id_alumno` int(11) NOT NULL,
+  `estado_asis` int(11) NOT NULL,
   `fecha_asistencia` date NOT NULL,
   `user` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -75,6 +76,18 @@ CREATE TABLE `cursoasignado` (
   `id_curso_asignado` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_curso` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tarea_maestro`
+--
+
+CREATE TABLE `tarea_maestro` (
+  `id` int(11) NOT NULL,
+  `descripcion` int(11) NOT NULL,
+  `materia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -129,6 +142,12 @@ ALTER TABLE `cursoasignado`
   ADD KEY `fk_curso_curso` (`id_curso`);
 
 --
+-- Indices de la tabla `tarea_maestro`
+--
+ALTER TABLE `tarea_maestro`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -161,6 +180,12 @@ ALTER TABLE `curso`
 --
 ALTER TABLE `cursoasignado`
   MODIFY `id_curso_asignado` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tarea_maestro`
+--
+ALTER TABLE `tarea_maestro`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

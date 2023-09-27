@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-09-2023 a las 20:51:02
+-- Tiempo de generación: 27-09-2023 a las 06:47:53
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -47,13 +47,14 @@ INSERT INTO `alumno` (`id_alumno`, `nombre`, `apellido`, `correo`, `fecha_nac`, 
 (1, 'david', 'martinez', 'dav@gmail.com', '2013-09-03', 5, 1),
 (2, 'martin', 'martinss', 'am@gmail.com', '2023-09-30', 2, 0),
 (3, 'camila', 'antu', 'cam@gmail.com', '2023-04-04', 2, 0),
-(4, 'pilar', 'santizo', 'psan@gmail.com', '2023-09-01', 7, 1),
+(4, 'pilar', 'santizo', 'psan@gmail.com', '2023-09-01', 7, 0),
 (5, 'david', 'martinez', 'dav@gmail.com', '2013-09-03', 2, 0),
 (6, 'xamp', 'ti', 'tixamp@gmail.com', '2023-09-12', 2, 0),
 (7, 'xamp', 'ti', 'tixamp@gmail.com', '2023-09-12', 2, 0),
 (8, 'xamp2', 'ti', 'tixamp@gmail.com', '2023-09-12', 2, 0),
 (9, 'xamp3', 'ti', 'tixamp@gmail.com', '2023-09-12', 2, 0),
-(10, 'xamp4', 'ti', 'tixamp@gmail.com', '2023-09-12', 2, 0);
+(10, 'xamp4', 'ti', 'tixamp@gmail.com', '2023-09-12', 2, 0),
+(11, 'kat', 'marlen', 'kat@gmail.com', '2023-09-03', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -64,9 +65,17 @@ INSERT INTO `alumno` (`id_alumno`, `nombre`, `apellido`, `correo`, `fecha_nac`, 
 CREATE TABLE `asistencia` (
   `id_asistencia` int(11) NOT NULL,
   `id_alumno` int(11) NOT NULL,
+  `estado_asis` int(11) NOT NULL,
   `fecha_asistencia` date NOT NULL,
   `user` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `asistencia`
+--
+
+INSERT INTO `asistencia` (`id_asistencia`, `id_alumno`, `estado_asis`, `fecha_asistencia`, `user`) VALUES
+(1148, 10, 0, '2023-09-27', 'XAMP');
 
 -- --------------------------------------------------------
 
@@ -118,6 +127,18 @@ INSERT INTO `cursoasignado` (`id_curso_asignado`, `id_user`, `id_curso`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tarea_maestro`
+--
+
+CREATE TABLE `tarea_maestro` (
+  `id` int(11) NOT NULL,
+  `descripcion` int(11) NOT NULL,
+  `materia` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -142,7 +163,8 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phon
 (3, 'USER', 'TEST1', 'vitivix255@vip4e.com', 'bcabd74f4a06ddab59d55b107f27661b', '2322323', 'ee0a317cc8eb52a10f41a66dc74d4816', '2023-09-19 03:58:12', '2023-09-19 04:17:10', '1'),
 (4, 'uma', 'sfs', 'pcvu_hgmas17@cikue.com', 'bcabd74f4a06ddab59d55b107f27661b', '121212', '6b0c0eb328260944cde19d7b3616f4ab', '2023-09-19 04:22:02', '2023-09-19 05:09:13', '1'),
 (5, 'XAMP', 'XAMP2', 'guillermo.mar18@gmail.com', '83b3d8c330e1d36a583d392df858d7a2', '1212', '8ff64b1b706ec24632eadfd836b6b57d', '2023-09-19 04:47:35', '2023-09-22 05:19:26', '1'),
-(6, 'user2', 'alo', 'feyij53454@fandsend.com', '83b3d8c330e1d36a583d392df858d7a2', '232323', '', '2023-09-22 03:49:12', '2023-09-22 03:49:12', '1');
+(6, 'user2', 'alo', 'feyij53454@fandsend.com', '83b3d8c330e1d36a583d392df858d7a2', '232323', '', '2023-09-22 03:49:12', '2023-09-22 03:49:12', '1'),
+(7, 'ADMIN', 'ST.', 'admin1212@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '2367888', '', '2023-09-24 22:24:21', '2023-09-24 22:24:21', '1');
 
 --
 -- Índices para tablas volcadas
@@ -177,6 +199,12 @@ ALTER TABLE `cursoasignado`
   ADD KEY `fk_curso_curso` (`id_curso`);
 
 --
+-- Indices de la tabla `tarea_maestro`
+--
+ALTER TABLE `tarea_maestro`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -190,13 +218,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `asistencia`
 --
 ALTER TABLE `asistencia`
-  MODIFY `id_asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=605;
+  MODIFY `id_asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1149;
 
 --
 -- AUTO_INCREMENT de la tabla `curso`
@@ -211,10 +239,16 @@ ALTER TABLE `cursoasignado`
   MODIFY `id_curso_asignado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT de la tabla `tarea_maestro`
+--
+ALTER TABLE `tarea_maestro`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
