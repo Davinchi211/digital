@@ -25,12 +25,13 @@
         //Guardar asistencia 
         $user = $_SESSION['first_name'];
         $fecha = date("Y-m-d");
+        $asis = '1';
         //recorrer el array de los marcados
         foreach($alumno_asis as $id_alumno){
             //Agregar alumnos presentes, con check
-            $sql4 = "INSERT INTO asistencia (id_alumno,fecha_asistencia,user) VALUES (?,?,?)";
+            $sql4 = "INSERT INTO asistencia (id_alumno,estado_asis,fecha_asistencia,user) VALUES (?,?,?,?)";
             $pr = $con->prepare($sql4);
-            $pr->bind_param("iss",$id_alumno,$fecha,$user);
+            $pr->bind_param("iiss",$id_alumno,$asis,$fecha,$user);
             $pr->execute();
         }
 
@@ -50,11 +51,12 @@
 
         //ya valida todos los id
         $alumno_ausente = array_diff($todosid, $alumno_asis);
+        $aus = '0';
         foreach($alumno_ausente as $id_alumno_aus){
             //Agregar alumnos ausentes, sin check
-            $sql6 = "INSERT INTO asistencia (id_alumno,fecha_asistencia, user) VALUES (?,?,?)";
+            $sql6 = "INSERT INTO asistencia (id_alumno,estado_asis,fecha_asistencia, user) VALUES (?,?,?,?)";
             $pr2 = $con->prepare($sql6);
-            $pr2->bind_param("iss",$id_alumno_aus,$fecha,$user);
+            $pr2->bind_param("iiss",$id_alumno_aus,$aus,$fecha,$user);
             $pr2->execute();
         }
     }
