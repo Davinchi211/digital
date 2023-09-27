@@ -147,7 +147,7 @@
             </div>
             <div class="col-2">
                 <div style="height:120px;">
-                <img src="../public/img/umg.png" alt="logo UMG" class="img-fluid d-block sm-image" style="width:200px;">      
+                <img src="../public/img/check.png" alt="logo UMG" class="img-fluid d-block sm-image" style="width:100px;">      
                 </div>   
              </div>
         </div>
