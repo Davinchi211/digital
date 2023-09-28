@@ -50,7 +50,7 @@ $variable = ControladorCurso::index2();
                     </div>
                     <div class="form-group">
                         <label for="estado_asistencia">Asistencia</label>
-                        <input type="number" class="form-control" name="estado_asistencia" required step="any">
+                        <input type="number" class="form-control" name="estado_asistencia" step="any" readonly>
                     </div>
                 </div>
                 <div class="modal-footer">

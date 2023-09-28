@@ -49,7 +49,7 @@ $variable = ControladorCurso::index2();
                     </div>
                     <div class="form-group">
                         <label for="alumnoEstado">Estado de asistencia</label>
-                        <input type="text" class="form-control" id="alumnoEstado" name="alumnoEstado" value="" required>
+                        <input type="text" class="form-control" id="alumnoEstado" name="alumnoEstado" value="" readonly>
                     </div>
                 </div>
                     <div class="modal-footer">

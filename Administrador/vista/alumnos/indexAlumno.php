@@ -49,7 +49,7 @@
               <th scope="col">Id</th>
               <th scope="col">Nombre</th>
               <th scope="col">Apellido</th>
-              <th scope="col">correo</th>
+              <th scope="col">Correo</th>
               <th scope="col">Operaciones</th>
             </tr>
           </thead>

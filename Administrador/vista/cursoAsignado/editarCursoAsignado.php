@@ -19,7 +19,7 @@ $variable = ControladorCurso::index2();
                 <div class="modal-body">
                     <input type="hidden"  id="id_asignacion" name="id_asignacion" value="">
                     <div class="form-group">
-                        <label for="usuario">Id suario</label>
+                        <label for="usuario">Id Usuario</label>
                         <input type="text" class="form-control" id="usuario" name="usuario" value="" required>
                     </div>
                     <div class="form-group">

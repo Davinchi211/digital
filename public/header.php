@@ -1,7 +1,8 @@
 <!--NAVBAR-->
-<nav class="navbar bg-primary text-white fixed-top">
-        <div class="container-fluid justify-content-start text-center">
-                <div class="row mt-1">
+
+<nav class="navbar bg-primary text-white fixed-top" style="height: 70px;">
+        <div class="container-fluid justify-content-start text-center mt-2">
+                <div class="row">
                     <div class="col">
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"> </span>
@@ -13,7 +14,7 @@
                     <div class="col">
                     <a class="navbar-brand text-warning"><h5><?php echo $_SESSION['first_name'];?></h5></a>
                     </div>
-                </div>                   
+                </div>     
             <!--DESIGN OFFCANVAS-->
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="navbarOffcanvasLgLabel">
                 <div class="offcanvas-header">

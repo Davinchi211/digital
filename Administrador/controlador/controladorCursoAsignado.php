@@ -49,7 +49,7 @@
             $condicion = "id_curso_asignado=".$id;
             $curso = new Modelo();
             $dato = $curso->eliminar("cursoAsignado",$condicion);
-            header("location: /Administrador/cursoAsignado.php");
+            header("location: cursoAsignado.php");
         }
     }
 
