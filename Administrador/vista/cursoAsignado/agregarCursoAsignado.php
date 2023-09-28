@@ -3,6 +3,7 @@
 require_once("config.php");
 require_once("controlador/controladorCurso.php");
 $variable = ControladorCurso::index2();
+$var2 = ControladorCurso::index3();
 ?>
 
 <div class="modal fade" id="agregarCursoAsignadoModal">
@@ -17,9 +18,19 @@ $variable = ControladorCurso::index2();
             <form action="CursoAsignado.php?m=guardar" method="POST" class="was-validated">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="usuario">Id Usuario</label>
-                        <input type="int" class="form-control" name="usuario" required>
+                        <label for="curso">Id Usuario</label>
+                        <select id="seleccionar-curso" name="usuario" class="form-select" required>
+                            <?php
+                            if (!empty($var2)) {
+                                foreach ($var2 as $ke => $valu)
+                                    foreach ($valu as $v) :
+                                        echo "<option value='".$v['id']."'>" .$v['id'] .". ".$v['first_name']."</option>";
+                                    endforeach;
+                            }
+                            ?>
+                        </select>
                     </div>
+
                     <div class="form-group">
                         <label for="curso">Id Curso</label>
                         <select id="seleccionar-curso" name="curso" class="form-select">

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/Administrador/vista/estilos/estilosAlumnos.css" />
-  <title>Asignacion</title>
+  <title>Asignación</title>
 </head>
 
 <body>
@@ -92,7 +92,7 @@
       
       <!--Botón que enviará al archivo php para generar pdf-->
       <div class="card text-center bg-dark text-white mb-3">
-        <a href="https://es.wikipedia.org/wiki/Guatemala" class="get-pdf">
+        <a href="" class="get-pdf">
           <h4>
           <i class="fa-solid fa-file-pdf"></i>
             Generar PDF

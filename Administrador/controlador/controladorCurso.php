@@ -20,6 +20,12 @@
             $dato=$alumno->mostrar("curso");
             return $dato;
         }
+        //mostrar los ususarios 
+        static function index3(){
+            $usuario = new Modelo();
+            $data = $usuario->mostrar("users");
+            return $data;
+        }
 
         static function resultadoConteo(){
             $resultado = new Modelo();

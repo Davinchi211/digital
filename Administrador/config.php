@@ -1,3 +1,3 @@
 <?php
-define("urlsite", 'http://localhost/Administrador/');
+define("urlsite", 'http://localhost/digital/');
 ?>
