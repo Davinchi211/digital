@@ -67,7 +67,6 @@ if ($productCount > 0) {
         <form action="delete_homework.php" method="post">
         <input id="tarea" value="<?php echo $row['tarea']; ?>" name="tarea"></input>
         <?php
-        session_start();
         echo "<td><a href='update.php?m=editar&id=".$row['id']."' class='btn btn-warning' >Editar</a><br> ";
         ?>
         <button type="submit" name="delete" style="float:right; border:none;">&times</button>
@@ -99,6 +98,7 @@ mysqli_close($link);
       <label for="disabledSelect" class="form-label"></label>
       <select  id="disabledSelect" class="form-select" name="materia">
         <option value="">Materia</option>
+        <!-- MOSTRAR CURSO SEGÚN USUARIO -->
     <?php
     ob_start();
     include('../controlador_asis/connect.php');
