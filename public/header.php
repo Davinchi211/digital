@@ -8,7 +8,9 @@
                 </div>       
             <a class="navbar-brand text-white"><h4>BIENVENID<small>@</small></h4></a>
             <a class="navbar-brand text-warning"><h5><?php echo $_SESSION['first_name'];?></h5></a>
+            <div>
             <a href="../login/userAccount.php?logoutSubmit=1" class="logout text-white" style="margin-left:1000px;">Cerrar Sesión</a>
+            </div>
             <!--DESIGN OFFCANVAS-->
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="navbarOffcanvasLgLabel">
                 <div class="offcanvas-header">

@@ -30,7 +30,7 @@
             $data = $usuario.",".$curso;
             $curso = new Modelo();
             $dato = $curso->insertar("cursoasignado",$data);
-            header("location: /Administrador/CursoAsignado.php");
+            header("location: CursoAsignado.php");
         }
 
         static function editar(){

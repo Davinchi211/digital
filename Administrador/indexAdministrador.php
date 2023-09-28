@@ -69,6 +69,12 @@
       </a>
     </div>
   </section>
+  <section class="sec-boton">
+  <div>
+  <a href="../login/userAccount.php?logoutSubmit=1" class="logout text-dark" style="margin-left:1000px;">Cerrar Sesión</a>
+
+  </div>
+  </section>
 
   <!--Para íconos en Font Awesome-->
   <script src="https://kit.fontawesome.com/0c127780a5.js" crossorigin="anonymous"></script>
