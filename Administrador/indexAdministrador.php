@@ -10,9 +10,20 @@
 </head>
 
 <body>
+
   <header>
-    <i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i>
+  <nav class="navbar text-white fixed-top">
+    <div class="container justify-content-start mt-2">
+    <i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;">    </i>
     <h1>Administrador</h1>
+    </div>
+    <div class="row justify-content-between align-items-center">
+      <div class="col">
+      <a href="../login/userAccount.php?logoutSubmit=1" class="logout text-white nav-link">Cerrar Sesión</a>
+      </div>
+      <div></div>
+    </div>
+</nav>
   </header>
 
   <section class="sec-boton">
@@ -68,12 +79,6 @@
         </div>
       </a>
     </div>
-  </section>
-  <section class="sec-boton">
-  <div>
-  <a href="../login/userAccount.php?logoutSubmit=1" class="logout text-dark" style="margin-left:1000px;">Cerrar Sesión</a>
-
-  </div>
   </section>
 
   <!--Para íconos en Font Awesome-->
