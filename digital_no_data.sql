@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2023 a las 06:47:34
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Sep 28, 2023 at 05:54 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `digital`
+-- Database: `digital`
 --
 CREATE DATABASE IF NOT EXISTS `digital` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `digital`;
@@ -26,7 +26,7 @@ USE `digital`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumno`
+-- Table structure for table `alumno`
 --
 
 CREATE TABLE `alumno` (
@@ -42,7 +42,7 @@ CREATE TABLE `alumno` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `asistencia`
+-- Table structure for table `asistencia`
 --
 
 CREATE TABLE `asistencia` (
@@ -56,7 +56,7 @@ CREATE TABLE `asistencia` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `curso`
+-- Table structure for table `curso`
 --
 
 CREATE TABLE `curso` (
@@ -69,7 +69,7 @@ CREATE TABLE `curso` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cursoasignado`
+-- Table structure for table `cursoasignado`
 --
 
 CREATE TABLE `cursoasignado` (
@@ -81,19 +81,19 @@ CREATE TABLE `cursoasignado` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tarea_maestro`
+-- Table structure for table `tarea_maestro`
 --
 
 CREATE TABLE `tarea_maestro` (
   `id` int(11) NOT NULL,
-  `descripcion` int(11) NOT NULL,
-  `materia` int(11) NOT NULL
+  `descripcion` varchar(50) NOT NULL,
+  `materia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -110,31 +110,31 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `alumno`
+-- Indexes for table `alumno`
 --
 ALTER TABLE `alumno`
   ADD PRIMARY KEY (`id_alumno`),
   ADD KEY `fk_curso_asig` (`id_curso_asignado`);
 
 --
--- Indices de la tabla `asistencia`
+-- Indexes for table `asistencia`
 --
 ALTER TABLE `asistencia`
   ADD PRIMARY KEY (`id_asistencia`),
   ADD KEY `fk_asistencia_alumno` (`id_alumno`);
 
 --
--- Indices de la tabla `curso`
+-- Indexes for table `curso`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`id_curso`);
 
 --
--- Indices de la tabla `cursoasignado`
+-- Indexes for table `cursoasignado`
 --
 ALTER TABLE `cursoasignado`
   ADD PRIMARY KEY (`id_curso_asignado`),
@@ -142,75 +142,75 @@ ALTER TABLE `cursoasignado`
   ADD KEY `fk_curso_curso` (`id_curso`);
 
 --
--- Indices de la tabla `tarea_maestro`
+-- Indexes for table `tarea_maestro`
 --
 ALTER TABLE `tarea_maestro`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `alumno`
+-- AUTO_INCREMENT for table `alumno`
 --
 ALTER TABLE `alumno`
   MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `asistencia`
+-- AUTO_INCREMENT for table `asistencia`
 --
 ALTER TABLE `asistencia`
   MODIFY `id_asistencia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `curso`
+-- AUTO_INCREMENT for table `curso`
 --
 ALTER TABLE `curso`
   MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `cursoasignado`
+-- AUTO_INCREMENT for table `cursoasignado`
 --
 ALTER TABLE `cursoasignado`
   MODIFY `id_curso_asignado` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tarea_maestro`
+-- AUTO_INCREMENT for table `tarea_maestro`
 --
 ALTER TABLE `tarea_maestro`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `alumno`
+-- Constraints for table `alumno`
 --
 ALTER TABLE `alumno`
   ADD CONSTRAINT `fk_curso_asig` FOREIGN KEY (`id_curso_asignado`) REFERENCES `curso` (`id_curso`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `asistencia`
+-- Constraints for table `asistencia`
 --
 ALTER TABLE `asistencia`
   ADD CONSTRAINT `fk_asistencia_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `cursoasignado`
+-- Constraints for table `cursoasignado`
 --
 ALTER TABLE `cursoasignado`
   ADD CONSTRAINT `fk_curso_curso` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`) ON DELETE NO ACTION ON UPDATE NO ACTION,

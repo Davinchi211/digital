@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2023 a las 06:47:53
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Sep 28, 2023 at 05:53 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `digital`
+-- Database: `digital`
 --
 CREATE DATABASE IF NOT EXISTS `digital` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `digital`;
@@ -26,7 +26,7 @@ USE `digital`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumno`
+-- Table structure for table `alumno`
 --
 
 CREATE TABLE `alumno` (
@@ -40,12 +40,12 @@ CREATE TABLE `alumno` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `alumno`
+-- Dumping data for table `alumno`
 --
 
 INSERT INTO `alumno` (`id_alumno`, `nombre`, `apellido`, `correo`, `fecha_nac`, `id_curso_asignado`, `estado_asistencia`) VALUES
-(1, 'david', 'martinez', 'dav@gmail.com', '2013-09-03', 5, 1),
-(2, 'martin', 'martinss', 'am@gmail.com', '2023-09-30', 2, 0),
+(1, 'david', 'martinez', 'dav@gmail.com', '2013-09-03', 3, 1),
+(2, 'martin', 'martinss', 'am@gmail.com', '2023-09-30', 2, 1),
 (3, 'camila', 'antu', 'cam@gmail.com', '2023-04-04', 2, 0),
 (4, 'pilar', 'santizo', 'psan@gmail.com', '2023-09-01', 7, 0),
 (5, 'david', 'martinez', 'dav@gmail.com', '2013-09-03', 2, 0),
@@ -54,12 +54,13 @@ INSERT INTO `alumno` (`id_alumno`, `nombre`, `apellido`, `correo`, `fecha_nac`, 
 (8, 'xamp2', 'ti', 'tixamp@gmail.com', '2023-09-12', 2, 0),
 (9, 'xamp3', 'ti', 'tixamp@gmail.com', '2023-09-12', 2, 0),
 (10, 'xamp4', 'ti', 'tixamp@gmail.com', '2023-09-12', 2, 0),
-(11, 'kat', 'marlen', 'kat@gmail.com', '2023-09-03', 5, 0);
+(11, 'kat', 'marlen', 'kat@gmail.com', '2023-09-03', 5, 1),
+(12, 'prueba', 'pr', 'pr@gmail.com', '2023-09-27', 2, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `asistencia`
+-- Table structure for table `asistencia`
 --
 
 CREATE TABLE `asistencia` (
@@ -71,16 +72,17 @@ CREATE TABLE `asistencia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `asistencia`
+-- Dumping data for table `asistencia`
 --
 
 INSERT INTO `asistencia` (`id_asistencia`, `id_alumno`, `estado_asis`, `fecha_asistencia`, `user`) VALUES
-(1148, 10, 0, '2023-09-27', 'XAMP');
+(1161, 11, 1, '2023-09-28', 'user2'),
+(1162, 1, 1, '2023-09-28', 'XAMP');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `curso`
+-- Table structure for table `curso`
 --
 
 CREATE TABLE `curso` (
@@ -91,20 +93,21 @@ CREATE TABLE `curso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `curso`
+-- Dumping data for table `curso`
 --
 
 INSERT INTO `curso` (`id_curso`, `nombre_curso`, `descripcion`, `fecha_ini`) VALUES
 (2, 'etica', 'curso de etica', '2023-09-03'),
-(3, 'redes', 'curso de redes', '2014-09-03'),
+(3, 'redes', 'curso de redes', '2014-09-02'),
 (5, 'dev', 'development', '2023-09-06'),
-(6, 'sql', 'bd', '2023-09-03'),
-(7, 'desarrollo', 'curso', '2023-09-03');
+(6, 'sql', 'curso de BD', '2023-09-03'),
+(7, 'desarrollo', 'curso', '2023-09-03'),
+(8, 'Etica2', 'curso', '2023-09-27');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cursoasignado`
+-- Table structure for table `cursoasignado`
 --
 
 CREATE TABLE `cursoasignado` (
@@ -114,32 +117,46 @@ CREATE TABLE `cursoasignado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `cursoasignado`
+-- Dumping data for table `cursoasignado`
 --
 
 INSERT INTO `cursoasignado` (`id_curso_asignado`, `id_user`, `id_curso`) VALUES
-(6, 5, 2),
+(6, 5, 3),
 (7, 5, 7),
 (12, 6, 5),
 (13, 6, 6),
-(14, 3, 3);
+(14, 3, 3),
+(16, 6, 3),
+(17, 6, 6),
+(18, 4, 3),
+(19, 3, 2),
+(20, 4, 2),
+(21, 3, 2),
+(22, 3, 2);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tarea_maestro`
+-- Table structure for table `tarea_maestro`
 --
 
 CREATE TABLE `tarea_maestro` (
   `id` int(11) NOT NULL,
-  `descripcion` int(11) NOT NULL,
-  `materia` int(11) NOT NULL
+  `descripcion` varchar(50) NOT NULL,
+  `materia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tarea_maestro`
+--
+
+INSERT INTO `tarea_maestro` (`id`, `descripcion`, `materia`) VALUES
+(1, 'tarea1', 'etica');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -156,42 +173,42 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `forgot_pass_identity`, `created`, `modified`, `status`) VALUES
 (3, 'USER', 'TEST1', 'vitivix255@vip4e.com', 'bcabd74f4a06ddab59d55b107f27661b', '2322323', 'ee0a317cc8eb52a10f41a66dc74d4816', '2023-09-19 03:58:12', '2023-09-19 04:17:10', '1'),
 (4, 'uma', 'sfs', 'pcvu_hgmas17@cikue.com', 'bcabd74f4a06ddab59d55b107f27661b', '121212', '6b0c0eb328260944cde19d7b3616f4ab', '2023-09-19 04:22:02', '2023-09-19 05:09:13', '1'),
-(5, 'XAMP', 'XAMP2', 'guillermo.mar18@gmail.com', '83b3d8c330e1d36a583d392df858d7a2', '1212', '8ff64b1b706ec24632eadfd836b6b57d', '2023-09-19 04:47:35', '2023-09-22 05:19:26', '1'),
+(5, 'XAMP', 'XAMP2', 'guillermo.mar18@gmail.com', '83b3d8c330e1d36a583d392df858d7a2', '1212', '66924ee6bbe578f0c1b18dd4b2262071', '2023-09-19 04:47:35', '2023-09-28 04:08:30', '1'),
 (6, 'user2', 'alo', 'feyij53454@fandsend.com', '83b3d8c330e1d36a583d392df858d7a2', '232323', '', '2023-09-22 03:49:12', '2023-09-22 03:49:12', '1'),
 (7, 'ADMIN', 'ST.', 'admin1212@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '2367888', '', '2023-09-24 22:24:21', '2023-09-24 22:24:21', '1');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `alumno`
+-- Indexes for table `alumno`
 --
 ALTER TABLE `alumno`
   ADD PRIMARY KEY (`id_alumno`),
   ADD KEY `fk_curso_asig` (`id_curso_asignado`);
 
 --
--- Indices de la tabla `asistencia`
+-- Indexes for table `asistencia`
 --
 ALTER TABLE `asistencia`
   ADD PRIMARY KEY (`id_asistencia`),
   ADD KEY `fk_asistencia_alumno` (`id_alumno`);
 
 --
--- Indices de la tabla `curso`
+-- Indexes for table `curso`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`id_curso`);
 
 --
--- Indices de la tabla `cursoasignado`
+-- Indexes for table `cursoasignado`
 --
 ALTER TABLE `cursoasignado`
   ADD PRIMARY KEY (`id_curso_asignado`),
@@ -199,75 +216,75 @@ ALTER TABLE `cursoasignado`
   ADD KEY `fk_curso_curso` (`id_curso`);
 
 --
--- Indices de la tabla `tarea_maestro`
+-- Indexes for table `tarea_maestro`
 --
 ALTER TABLE `tarea_maestro`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `alumno`
+-- AUTO_INCREMENT for table `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT de la tabla `asistencia`
+-- AUTO_INCREMENT for table `asistencia`
 --
 ALTER TABLE `asistencia`
-  MODIFY `id_asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1149;
+  MODIFY `id_asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1163;
 
 --
--- AUTO_INCREMENT de la tabla `curso`
+-- AUTO_INCREMENT for table `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `cursoasignado`
+-- AUTO_INCREMENT for table `cursoasignado`
 --
 ALTER TABLE `cursoasignado`
-  MODIFY `id_curso_asignado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_curso_asignado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT de la tabla `tarea_maestro`
+-- AUTO_INCREMENT for table `tarea_maestro`
 --
 ALTER TABLE `tarea_maestro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `alumno`
+-- Constraints for table `alumno`
 --
 ALTER TABLE `alumno`
   ADD CONSTRAINT `fk_curso_asig` FOREIGN KEY (`id_curso_asignado`) REFERENCES `curso` (`id_curso`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `asistencia`
+-- Constraints for table `asistencia`
 --
 ALTER TABLE `asistencia`
   ADD CONSTRAINT `fk_asistencia_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `cursoasignado`
+-- Constraints for table `cursoasignado`
 --
 ALTER TABLE `cursoasignado`
   ADD CONSTRAINT `fk_curso_curso` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
