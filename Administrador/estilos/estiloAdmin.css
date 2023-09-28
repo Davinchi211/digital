@@ -1,0 +1,74 @@
+body{
+    margin: 0px;
+}
+
+header{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: #002f54;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header i{
+    font-size: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+header h1{
+    font-size: 40px;
+    color: white;
+}
+.sec-boton{
+    margin:10px; 
+    display: flex;  
+    flex-wrap: wrap;
+}
+
+.card-boton{
+    width: 250px;
+    height: 150px;
+    margin: 20px;
+    position: relative;
+}
+
+.card-boton a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-decoration: none;
+}
+
+
+.header-enlace{
+    background-color: #2491e4;
+    width: 100%;
+    height: 80%;
+    display: flex;
+}
+
+.text-header{
+    font-size: 25px;
+    margin-right: 45px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.icon-header{
+    display: flex;
+    align-items: center;
+    font-size: 80px;
+}
+
+.footer-enlace{
+    background-color: #125b92;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    color: white;
+}
+

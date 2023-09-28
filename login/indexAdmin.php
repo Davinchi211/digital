@@ -36,7 +36,7 @@ if(!empty($sessData['status']['msg'])){
             <p><b>Teléfono: </b><?php echo $userData['phone']; ?></p>
 			<hr>
 			<div class="btn"><br>
-				<a href="../controlador_asis/reporte_asis.php">INGRESAR</a>
+				<a href="../Administrador/indexAdministrador.php">INGRESAR</a>
 			</div>
 		</div>
         <?php }else{ ?>
