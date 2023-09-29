@@ -1,0 +1,103 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: century Gothic;
+}
+
+body {
+    background: linear-gradient(to bottom, #011130, #0f0d18);
+    background-size: cover; /* Para asegurarte de que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; /*No repetir*/
+    height: 100%;
+    padding: 0;
+    height: 0;
+}
+
+h1,h6{
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+form {
+    width: 700px;
+    margin: auto;
+    background-color: white;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+input {
+    margin: 15px;
+    padding: 10px;
+    width: 640px;
+    font-size: 18px;
+    border: black solid 1px;
+}   
+
+input[type="submit"]{
+    background-color: #011130;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    width: 640px;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: #0f0d18;
+}
+
+textarea {
+    font-size: 18px;
+    margin: 15px;
+    padding: 10px;
+    width: 640px;
+    min-height: 200px;
+    border: black solid 1px;
+    margin-bottom: 5px;
+    resize: none;
+}
+
+
+
+@media(max-width:706px){
+    form{
+        width: 500px;
+    }
+
+    input{
+        width: 440px;
+    }
+
+    input[type="submit"]{
+        width: 440px;
+    }
+
+    textarea{
+        width: 440px;
+    }
+
+    @media(max-width: 510px){
+        form{
+            width: 300px;
+        }
+    
+        input{
+            width: 240px;
+        }
+    
+        input[type="submit"]{
+            width: 240px;
+        }
+    
+        textarea{
+            width: 240px;
+        }
+    }
+}
