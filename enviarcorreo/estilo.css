@@ -8,14 +8,11 @@ body {
     background: linear-gradient(to bottom, #011130, #0f0d18);
     background-size: cover; /* Para asegurarte de que la imagen cubra todo el fondo */
     background-repeat: no-repeat; /*No repetir*/
-    height: 100%;
-    padding: 0;
-    height: 0;
 }
 
-h1,h6{
+h1{
     text-align: center;
-    color: white;
+    color: rgb(3, 3, 3);
     margin-top: 20px;
 }
 
