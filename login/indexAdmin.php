@@ -13,7 +13,7 @@ if(!empty($sessData['status']['msg'])){
     <title>Bienvenido al sistema</title>
     <link rel="stylesheet" href="style.css" type="text/css" media="all" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" 	type="text/css" media="all">
-	<link rel="shortcut icon" href="../public/img/home.png">
+	<link rel="icon" href="../public/img/home.svg">
 </head>
 <body>
     <h1>Bienvenido al sistema ..:ADMIN:..</h1>
