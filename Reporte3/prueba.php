@@ -184,7 +184,7 @@ while ($dataRow = mysqli_fetch_array($query)) {
     $ID_A = $_POST['id_alumno'];
     $ID_C = $_POST['id_curso'];
 
-    $consul = "SELECT * FROM reporte_asistencia WHERE id_curso='$ID_C' AND id_alumno='$ID_A'";
+    $consul = "SELECT DISTINCT * FROM reporte_asistencia WHERE id_curso='$ID_C' AND id_alumno='$ID_A' ORDER BY fecha_asistencia, id_alumno";
     $resu=$db->query($consul);
     while($filas = $resu->fetch(PDO::FETCH_ASSOC)){
 
