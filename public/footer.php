@@ -6,7 +6,7 @@
             <h6>© 2023 PROYECT</h6>
             </div>
             <div class="col-5">
-            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 link-dark"><h6>CHECKING.com</h6></a>
+            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 link-dark"><h6>DIGITALcheck.com</h6></a>
             </div>
             <div class="col-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-bar-chart-line" viewBox="0 0 16 16">

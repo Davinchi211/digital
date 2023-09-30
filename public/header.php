@@ -1,6 +1,5 @@
 <!--NAVBAR-->
-
-<nav class="navbar bg-primary text-white fixed-top" style="height: 70px;">
+<nav class="navbar bg-secondary text-white fixed-top" style="height: 70px;">
         <div class="container-fluid justify-content-start text-center mt-2">
                 <div class="row">
                     <div class="col">

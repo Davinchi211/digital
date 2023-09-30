@@ -40,7 +40,7 @@
         }
 
         static function canceler(){
-            header("location:".urlmateria);
+            header("location:".urltarea);
         }
 
 

@@ -38,7 +38,7 @@
         static function editar(){
             $id=$_REQUEST['id'];
             $tarea = new Modelo();
-            $dato=$tarea->mostrar("tarea","id=".$id);
+            $dato=$tarea->mostrar("tarea","id_tarea=".$id);
             require_once("vista/tarea/editar.php");
         }
 
@@ -57,7 +57,7 @@
             $maestro = $_REQUEST['maestro'];
 
             $data = "nombre = '$nombre', descripcion='$descripcion', fecha='$fecha' , puntos='$puntos', materia='$materia', maestro='$maestro'";
-            $condicion = "id=".$idTarea;
+            $condicion = "id_tarea=".$idTarea;
             $tarea = new Modelo();
             $dato = $tarea->actualizar("tarea",$data,$condicion);
             header("location:".urltarea);
@@ -68,7 +68,7 @@
  // ELIMINAR
         static function eliminar(){
             $idMateria = $_REQUEST['id'];
-            $condicion = "id=".$idMateria;
+            $condicion = "id_tarea=".$idMateria;
             $tarea = new Modelo();
             $dato = $tarea->eliminar("tarea",$condicion);
             header("location:".urltarea);

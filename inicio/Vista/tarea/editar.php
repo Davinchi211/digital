@@ -11,7 +11,7 @@
 
         <div class="mb-3" hidden>
         <label for="idTarea" class="form-label" >Id tarea:</label>
-        <input type="number" class="form-control" id="idTarea" name="idTarea" value="<?php echo $v['id'] ?>" aria-describedby="emailHelp">
+        <input type="number" class="form-control" id="idTarea" name="idTarea" value="<?php echo $v['id_tarea'] ?>" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">

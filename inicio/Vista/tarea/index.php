@@ -18,7 +18,7 @@
             <td>Descripcion</td>
             <td>Fecha</td>
             <td>Puntos</td>
-            <td>Materio</td>
+            <td>Materia</td>
             <td>Maestro</td>
             <td>Opciones</td>
         </tr>
@@ -26,9 +26,9 @@
         if(!empty($dato))
             foreach ($dato as $key => $value)
                 foreach ($value as $va ):
-                echo "<tr><td>".$va['id']."</td><td>".$va['nombre']."</td><td>".$va['descripcion']."</td><td>".$va['fecha']."</td><td>".$va['puntos']."</td><td>".$va['materia']."</td><td>".$va['maestro']."</td>";
-                echo "<td><a href='tarea.php?m=editar&id=".$va['id']."' type='button' class='btn btn-warning'>ACTUALIZAR</a> ";
-                echo "<a href='tarea.php?m=eliminar&id=".$va['id']."' type='button' class='btn btn-danger'>ELIMINAR</a></td>";
+                echo "<tr><td>".$va['id_tarea']."</td><td>".$va['nombre']."</td><td>".$va['descripcion']."</td><td>".$va['fecha']."</td><td>".$va['puntos']."</td><td>".$va['materia']."</td><td>".$va['maestro']."</td>";
+                echo "<td><a href='tarea.php?m=editar&id=".$va['id_tarea']."' type='button' class='btn btn-warning'>ACTUALIZAR</a> ";
+                echo "<a href='tarea.php?m=eliminar&id=".$va['id_tarea']."' type='button' class='btn btn-danger'>ELIMINAR</a></td>";
                 echo "</tr>";
             endforeach;
         

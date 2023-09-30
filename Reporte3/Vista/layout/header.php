@@ -15,7 +15,7 @@
 <body>
 
 <div class="sidebar">
-    <a href="../inicio/index.php" class="nav-link">REGRESAR</a>
+    <a href="/digital/public/index.php" class="nav-link">REGRESAR</a>
 </div>
 
 <div class="content">           
