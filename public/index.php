@@ -25,19 +25,19 @@ include('header.php');?>
         <!-- Sección de Asistencia -->
     <section class="mt-5">
         <h2>Tomar Asistencia</h2>
-        <p>Tomar asistencia diaria en el curso</p>
+        <p>Toma asistencia diaria en el curso</p>
     </section>
     
     <!-- Sección de Generar Reportes -->
     <section class="mt-5">
         <h2>Generar Reportes</h2>
-        <p>Generar reportes de asistencia por id de alumno y curso</p>
+        <p>Genera reportes de asistencia por id de alumno y curso</p>
     </section>
     
     <!-- Sección de Crear Tareas -->
     <section class="mt-5">
         <h2>Crear Tareas para el Profesor</h2>
-        <p>Crear tareas para el curso necesario</p>
+        <p>Crea tareas para el curso necesario</p>
     </section>
     </div>
 </div>
