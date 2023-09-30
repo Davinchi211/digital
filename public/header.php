@@ -34,7 +34,7 @@
                             <a href="../vista_asis/asistencia.php" class="nav-link">ASISTENCIA</a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a href="../controlador_asis/reporte_asis.php" class="nav-link" target="_blank">REPORTE</a>
+                            <a href="/digital/Reporte3/reporte.php" class="nav-link">REPORTE</a>
                         </li>
                         <li class="nav-item mt-4">
                             <a href="../enviarcorreo/index.php" class="nav-link" target="_blank">CORREO</a>
