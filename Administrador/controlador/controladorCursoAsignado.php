@@ -50,6 +50,7 @@
             $curso = new Modelo();
             $dato = $curso->eliminar("cursoAsignado",$condicion);
             header("location: cursoAsignado.php");
+            
         }
     }
 
