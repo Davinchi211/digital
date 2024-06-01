@@ -1,0 +1,1 @@
+Un software para gestionar la asistencia de manera sencilla, evitando procesos manuales y redundantes, que permita presentar reportes de asistencia a las coordinadoras y encargados de cocina para la distribución de los alimentos.
